@@ -1,0 +1,11 @@
+{
+  "name": "glint-core",
+  "version": "v0.1.0",
+  "files": [
+    "src"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5"
+  }
+}
