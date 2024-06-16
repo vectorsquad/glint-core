@@ -4,11 +4,10 @@ export interface IUser {
     email: string;
     name_first: string;
     name_last: string;
-    decks: IDeck[]
 }
 
 export interface IDeck {
-    cards: ICard[]
+    title: string;
 }
 
 export interface ICard {
