@@ -9,10 +9,6 @@ type NewPasswordParams = {
     password_new: string,
 }
 
-type PasswordResetCode = {
-    reset_code: string,
-}
-
 // User
 export type ISignUpRequest = IUserNative;
 export type ISignUpResponse = Id;
@@ -23,13 +19,13 @@ export type ISignInResponse = undefined;
 export type IUpdatePasswordRequest = NewPasswordParams;
 export type IUpdatePasswordResponse = undefined;
 
-export type IResetPasswordRequest = NewPasswordParams & PasswordResetCode;
+export type IResetPasswordRequest = NewPasswordParams;
 export type IResetPasswordResponse = undefined;
 
-export type ISendResetCodeRequest = Pick<IUserNative, "email">;
-export type ISendResetCodeResponse = undefined;
+export type ISendPasswordRecoveryRequest = Partial<Pick<IUserNative, "email" | "username">>;
+export type ISendPasswordRecoveryResponse = undefined;
 
-export type ISendEmailVerificationRequest = Pick<IUserNative, "email">;
+export type ISendEmailVerificationRequest = Partial<Pick<IUserNative, "email" | "username">>;
 export type ISendEmailVerificationResponse = undefined;
 
 export type IVerifyEmailRequest = undefined;

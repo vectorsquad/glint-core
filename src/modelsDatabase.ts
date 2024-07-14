@@ -1,9 +1,4 @@
-import { IDeckNative } from "modelsNative";
 import { ObjectId } from "mongodb";
-
-export type ReplaceKeyType<T, Unwanted, Replacement> = {
-    [Key in keyof T]: T[Key] extends Unwanted ? Replacement : T[Key]
-}
 
 export interface IUserDb {
     name_first: string,
@@ -22,6 +17,10 @@ export interface ICardDb {
     name_front: string,
     name_back: string,
     id_deck: ObjectId,
+}
+
+type ReplaceKeyType<T, Unwanted, Replacement> = {
+    [Key in keyof T]: T[Key] extends Unwanted ? Replacement : T[Key]
 }
 
 export type FromDatabase<T> = ReplaceKeyType<T, ObjectId, string>;
