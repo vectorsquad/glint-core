@@ -7,6 +7,9 @@ interface DatabaseDocument {
     _id: ObjectId
 }
 
+
+type DocNew<T> = Omit<T, "_id">
+
 export interface IUserDoc extends DatabaseDocument {
     /**
      * User's first name.
@@ -34,6 +37,8 @@ export interface IUserDoc extends DatabaseDocument {
     password_hash: string,
 }
 
+export type IUserDocNew = DocNew<IUserDoc>
+
 export interface IDeckDoc extends DatabaseDocument {
     /**
      * Card deck's name.
@@ -45,6 +50,8 @@ export interface IDeckDoc extends DatabaseDocument {
      */
     id_user: ObjectId,
 }
+
+export type IDeckDocNew = DocNew<IDeckDoc>
 
 export interface ICardDoc extends DatabaseDocument {
     /**
@@ -62,6 +69,8 @@ export interface ICardDoc extends DatabaseDocument {
      */
     id_deck: ObjectId,
 }
+
+export type ICardDocNew = DocNew<ICardDoc>
 
 type ReplaceKeyType<T, Unwanted, Replacement> = {
     [Key in keyof T]: T[Key] extends Unwanted ? Replacement : T[Key]
