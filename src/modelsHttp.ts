@@ -12,6 +12,12 @@ type OwnershipVerification = {
     code: string
 }
 
+export type ErrorResponse = {
+    message: {
+        en: string
+    }
+}
+
 // User
 
 /**
