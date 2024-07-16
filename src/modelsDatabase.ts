@@ -3,14 +3,14 @@ import { ObjectId } from "mongodb";
 /**
  * Document that's been freshly retrieved from a MongoDB database.
  */
-interface DatabaseDocument {
+export interface Doc {
     _id: ObjectId
 }
 
 
 type DocNew<T> = Omit<T, "_id">
 
-export interface IUserDoc extends DatabaseDocument {
+export interface IUserDoc extends Doc {
     /**
      * User's first name.
      */
@@ -39,7 +39,7 @@ export interface IUserDoc extends DatabaseDocument {
 
 export type IUserDocNew = DocNew<IUserDoc>
 
-export interface IDeckDoc extends DatabaseDocument {
+export interface IDeckDoc extends Doc {
     /**
      * Card deck's name.
      */
@@ -53,7 +53,7 @@ export interface IDeckDoc extends DatabaseDocument {
 
 export type IDeckDocNew = DocNew<IDeckDoc>
 
-export interface ICardDoc extends DatabaseDocument {
+export interface ICardDoc extends Doc {
     /**
      * Front side of card.
      */

@@ -1,6 +1,6 @@
 import { ICardNative, IDeckNative, IUserNative } from "./modelsNative";
 
-type Id = {
+type DocNative = {
     _id: string
 }
 
@@ -22,7 +22,7 @@ export type ISignUpRequest = Pick<IUserNative, "email" | "name_first" | "name_la
 /**
  * Payload after signing up.
  */
-export type ISignUpResponse = Id;
+export type ISignUpResponse = DocNative;
 
 /**
  * Parameters for signing in.
@@ -94,7 +94,7 @@ export type ICreateDeckRequest = Pick<IDeckNative, "id_user" | "name">;
 /**
  * Payload after creating a new deck.
  */
-export type ICreateDeckResponse = Id;
+export type ICreateDeckResponse = DocNative;
 
 /**
  * Parameters for finding a deck.
@@ -109,7 +109,7 @@ export type IFindDeckResponse = IDeckNative[];
 /**
  * Parameters for updating a deck.
  */
-export type IUpdateDeckRequest = Partial<IDeckNative> & Id;
+export type IUpdateDeckRequest = Partial<IDeckNative> & DocNative;
 
 /**
  * Payload after updating a deck.
@@ -119,7 +119,7 @@ export type IUpdateDeckResponse = undefined;
 /**
  * Parameters for deleting a deck.
  */
-export type IDeleteDeckRequest = Id[];
+export type IDeleteDeckRequest = DocNative[];
 
 /**
  * Payload after deleting a deck.
@@ -136,7 +136,7 @@ export type ICreateCardRequest = Pick<ICardNative, "id_deck" | "name_back" | "na
 /**
  * Payload after creating a card.
  */
-export type ICreateCardResponse = Id;
+export type ICreateCardResponse = DocNative;
 
 /**
  * Parameters for finding a card.
@@ -151,7 +151,7 @@ export type IFindCardResponse = (ICardNative)[];
 /**
  * Parameters for updating a card.
  */
-export type IUpdateCardRequest = Partial<ICardNative> & Id;
+export type IUpdateCardRequest = Partial<ICardNative> & DocNative;
 
 /**
  * Payload after updating a card.
@@ -161,7 +161,7 @@ export type IUpdateCardResponse = undefined;
 /**
  * Parameters for deleting a card.
  */
-export type IDeleteCardRequest = Id;
+export type IDeleteCardRequest = DocNative;
 
 /**
  * Payload after deleting a card.
