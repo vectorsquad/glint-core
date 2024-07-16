@@ -5,8 +5,11 @@ type Id = {
 }
 
 type NewPasswordParams = {
-    password_old: string,
-    password_new: string,
+    password: string,
+}
+
+type OwnershipVerification = {
+    code: string
 }
 
 // User
@@ -14,7 +17,7 @@ type NewPasswordParams = {
 /**
  * Parameters for signing up.
  */
-export type ISignUpRequest = IUserNative;
+export type ISignUpRequest = Pick<IUserNative, "email" | "name_first" | "name_last" | "username" | "password_hash">;
 
 /**
  * Payload after signing up.
@@ -44,7 +47,7 @@ export type IUpdatePasswordResponse = undefined;
 /**
  * Parameters for resetting an unknown password.
  */
-export type IResetPasswordRequest = NewPasswordParams;
+export type IResetPasswordRequest = NewPasswordParams & OwnershipVerification;
 
 /**
  * Payload after resetting an unknown password.
@@ -86,7 +89,7 @@ export type IVerifyEmailResponse = undefined;
 /**
  * Parameters for creating a new deck.
  */
-export type ICreateDeckRequest = IDeckNative;
+export type ICreateDeckRequest = Pick<IDeckNative, "id_user" | "name">;
 
 /**
  * Payload after creating a new deck.
@@ -96,12 +99,12 @@ export type ICreateDeckResponse = Id;
 /**
  * Parameters for finding a deck.
  */
-export type IFindDeckRequest = Partial<IDeckNative & Id>;
+export type IFindDeckRequest = Partial<Pick<IDeckNative, "_id" | "id_user" | "name">>;
 
 /**
  * Payload after finding a deck.
  */
-export type IFindDeckResponse = (IDeckNative & Id)[];
+export type IFindDeckResponse = IDeckNative[];
 
 /**
  * Parameters for updating a deck.
@@ -128,7 +131,7 @@ export type IDeleteDeckResponse = undefined;
 /**
  * Parameters for creating a card.
  */
-export type ICreateCardRequest = ICardNative;
+export type ICreateCardRequest = Pick<ICardNative, "id_deck" | "name_back" | "name_front">;
 
 /**
  * Payload after creating a card.
@@ -138,12 +141,12 @@ export type ICreateCardResponse = Id;
 /**
  * Parameters for finding a card.
  */
-export type IFindCardRequest = Partial<ICardNative & Id>;
+export type IFindCardRequest = Partial<ICardNative>;
 
 /**
  * Payload after finding a card.
  */
-export type IFindCardResponse = (ICardNative & Id)[];
+export type IFindCardResponse = (ICardNative)[];
 
 /**
  * Parameters for updating a card.
