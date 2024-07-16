@@ -1,6 +1,6 @@
 import { ICardNative, IDeckNative, IUserNative } from "./modelsNative";
 
-type DocNative = {
+export type DocNative = {
     _id: string
 }
 
