@@ -62,12 +62,12 @@ export interface ICardDoc extends Doc {
     /**
      * Front side of card.
      */
-    name_front: string,
+    side_front: string,
 
     /**
      * Back side of card.
      */
-    name_back: string,
+    side_back: string,
 
     /**
      * ID of deck that owns this card.
