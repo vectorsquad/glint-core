@@ -128,7 +128,7 @@ export type IUpdateDeckResponse = undefined;
 /**
  * Parameters for deleting a deck.
  */
-export type IDeleteDeckRequest = DocNative[];
+export type IDeleteDeckRequest = Pick<IDeckNative, "_id">;
 
 /**
  * Payload after deleting a deck.
