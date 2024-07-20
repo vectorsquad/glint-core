@@ -35,6 +35,11 @@ export interface IUserDoc extends Doc {
      * User's hashed password.
      */
     password_hash: string,
+
+    /**
+     * User's email has been verified.
+     */
+    email_verified: false
 }
 
 export type IUserDocNew = DocNew<IUserDoc>
