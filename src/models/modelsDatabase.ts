@@ -41,7 +41,7 @@ export interface IUserDoc extends Doc {
      */
     email_verified: boolean
 
-    verification_code: string
+    email_verification_code: string
 }
 
 export type IUserDocNew = DocNew<IUserDoc>
