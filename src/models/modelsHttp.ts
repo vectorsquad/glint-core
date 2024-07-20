@@ -66,7 +66,7 @@ export type IResetPasswordResponse = undefined;
 /**
  * Parameters for sending a password recovery email.
  */
-export type ISendPasswordRecoveryRequest = Partial<Pick<IUserNative, "username">> & Partial<Pick<IUserNative, "password_hash">>;
+export type ISendPasswordRecoveryRequest = Partial<Pick<IUserNative, "username">> & Partial<Pick<IUserNative, "email">>;
 
 /**
  * Payload after sending a password recovery email.
