@@ -39,7 +39,7 @@ export interface IUserDoc extends Doc {
     /**
      * User's email has been verified.
      */
-    email_verified: false
+    email_verified: boolean
 
     verification_code: string
 }
