@@ -1,6 +1,9 @@
 import { ICardNative, IDeckNative, IUserNative } from "./modelsNative";
 
 export type DocNative = {
+    /**
+     * ID of document in database.
+     */
     _id: string
 }
 
@@ -13,9 +16,7 @@ type OwnershipVerification = {
 }
 
 export type ErrorResponse = {
-    message: {
-        en: string
-    }
+    message: string
 }
 
 // User
@@ -33,7 +34,9 @@ export type ISignUpResponse = DocNative;
 /**
  * Parameters for signing in.
  */
-export type ISignInRequest = Pick<IUserNative, "username" | "password_hash">;
+export type ISignInRequest = {
+    login?: Pick<IUserNative, "username" | "password_hash">
+};
 
 /**
  * Payload after signing in.
@@ -63,7 +66,7 @@ export type IResetPasswordResponse = undefined;
 /**
  * Parameters for sending a password recovery email.
  */
-export type ISendPasswordRecoveryRequest = Partial<Pick<IUserNative, "email" | "username">>;
+export type ISendPasswordRecoveryRequest = Partial<Pick<IUserNative, "username">> & Partial<Pick<IUserNative, "password_hash">>;
 
 /**
  * Payload after sending a password recovery email.
@@ -73,7 +76,7 @@ export type ISendPasswordRecoveryResponse = undefined;
 /**
  * Parameters for sending an email recovery email.
  */
-export type ISendEmailVerificationRequest = Partial<Pick<IUserNative, "email" | "username">>;
+export type ISendEmailVerificationRequest = Partial<Pick<IUserNative, "username">> & Partial<Pick<IUserNative, "email">>;
 
 /**
  * Payload after sending an email recvery email.
@@ -95,7 +98,7 @@ export type IVerifyEmailResponse = undefined;
 /**
  * Parameters for creating a new deck.
  */
-export type ICreateDeckRequest = Pick<IDeckNative, "id_user" | "name">;
+export type ICreateDeckRequest = Pick<IDeckNative, "name">;
 
 /**
  * Payload after creating a new deck.
@@ -105,7 +108,7 @@ export type ICreateDeckResponse = DocNative;
 /**
  * Parameters for finding a deck.
  */
-export type IFindDeckRequest = Partial<Pick<IDeckNative, "_id" | "id_user" | "name">>;
+export type IFindDeckRequest = Partial<IDeckNative>;
 
 /**
  * Payload after finding a deck.
@@ -115,7 +118,7 @@ export type IFindDeckResponse = IDeckNative[];
 /**
  * Parameters for updating a deck.
  */
-export type IUpdateDeckRequest = Partial<IDeckNative> & DocNative;
+export type IUpdateDeckRequest = Partial<Pick<IDeckNative, "name">> & DocNative;
 
 /**
  * Payload after updating a deck.
@@ -152,7 +155,7 @@ export type IFindCardRequest = Partial<ICardNative>;
 /**
  * Payload after finding a card.
  */
-export type IFindCardResponse = (ICardNative)[];
+export type IFindCardResponse = ICardNative[];
 
 /**
  * Parameters for updating a card.
