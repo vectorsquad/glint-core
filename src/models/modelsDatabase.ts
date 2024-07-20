@@ -40,6 +40,8 @@ export interface IUserDoc extends Doc {
      * User's email has been verified.
      */
     email_verified: false
+
+    verification_code: string
 }
 
 export type IUserDocNew = DocNew<IUserDoc>
