@@ -75,6 +75,11 @@ export interface ICardDoc extends Doc {
      * ID of deck that owns this card.
      */
     id_deck: ObjectId,
+
+    /**
+     * Deck relative index.
+     */
+    deck_index: number
 }
 
 export type ICardDocNew = DocNew<ICardDoc>

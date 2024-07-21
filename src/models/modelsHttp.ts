@@ -145,7 +145,17 @@ export type ICreateCardRequest = Pick<ICardNative, "id_deck" | "side_front" | "s
 /**
  * Payload after creating a card.
  */
-export type ICreateCardResponse = DocNative;
+export type ICreateCardResponse = Pick<ICardNative, "deck_index" | "_id">;
+
+export type ISwapCardsRequest = {
+    card_first: Pick<ICardNative, "_id">,
+    card_second: Pick<ICardNative, "_id">,
+};
+
+export type ISwapCardsResponse = {
+    card_first: Pick<ICardNative, "deck_index">,
+    card_second: Pick<ICardNative, "deck_index">,
+};
 
 /**
  * Parameters for finding a card.
