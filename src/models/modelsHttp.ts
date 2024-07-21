@@ -140,7 +140,7 @@ export type IDeleteDeckResponse = undefined;
 /**
  * Parameters for creating a card.
  */
-export type ICreateCardRequest = Pick<ICardNative, "id_deck" | "side_front" | "side_back">;
+export type ICreateCardRequest = Partial<Pick<ICardNative, "side_front" | "side_back">> & Pick<ICardNative, "id_deck">;
 
 /**
  * Payload after creating a card.
