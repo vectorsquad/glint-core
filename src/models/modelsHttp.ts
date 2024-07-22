@@ -160,7 +160,13 @@ export type ISwapCardsResponse = {
 /**
  * Parameters for finding a card.
  */
-export type IFindCardRequest = Partial<Pick<ICardNative, "side_front" | "side_back" | "deck_index" | "_id">> & Pick<ICardNative, "id_deck">;
+export type IFindCardRequest =
+    Partial<Pick<ICardNative, "side_front" | "side_back" | "deck_index" | "_id">> &
+    Pick<ICardNative, "id_deck"> &
+    {
+        start_index?: number,
+        count?: number
+    };
 
 /**
  * Payload after finding a card.
